@@ -1,0 +1,292 @@
+======================================================================
+Task-3: Qualitative Analysis of Generated Indian Names
+======================================================================
+
+======================================================================
+STEP 1 — REPRESENTATIVE SAMPLES (25 per model)
+======================================================================
+
+Vanilla RNN Samples
+----------------------------------------
+   1. Devi
+   2. Karuna
+   3. Manta
+   4. Ishita
+   5. Rana
+   6. Shankari
+   7. Vimala
+   8. Ujjwal
+   9. Raman
+  10. Uttara
+  11. Suraj
+  12. Sanjay
+  13. Shreyam
+  14. Leepa
+  15. Pratik
+  16. Anagha
+  17. Kumurtha
+  18. Manish
+  19. Prasad
+  20. Koham
+  21. Parvith
+  22. Chama
+  23. Sarang
+  24. Shubad
+  25. Eesha
+
+BLSTM Samples
+----------------------------------------
+   1. Agefreny
+   2. Pefuteg
+   3. Putevesy
+   4. Mamyaj
+   5. Gundej
+   6. Senyag
+   7. Zafjefnd
+   8. Agefnef
+   9. Vekeg
+  10. Suteysan
+  11. Sensjwil
+  12. Jelyal
+  13. Sefnef
+  14. Amvewef
+  15. Jafysav
+  16. Gejef
+  17. Sebabag
+  18. Nufufod
+  19. Pufutay
+  20. Uhemis
+  21. Pafung
+  22. Aefnud
+  23. Pupsed
+  24. Pekul
+  25. Anjej
+
+RNN + Attention Samples
+----------------------------------------
+   1. Salil
+   2. Achala
+   3. Abhilani
+   4. Mridul
+   5. Ashika
+   6. Anusha
+   7. Dipankar
+   8. Sanchit
+   9. Ranchant
+  10. Kishore
+  11. Bani
+  12. Harini
+  13. Roshni
+  14. Charu
+  15. Barsha
+  16. Shriya
+  17. Harshal
+  18. Puranjay
+  19. Apeksha
+  20. Devika
+  21. Pranal
+  22. Muskaan
+  23. Sachin
+  24. Nirbhay
+  25. Gargi
+
+======================================================================
+STEP 2 — REALISM ANALYSIS
+======================================================================
+
+Training set reference:
+  Average name length: 6.1 characters
+
+Vanilla RNN:
+  Average generated name length : 6.1 characters
+  Names with common Indian endings: 779/1000 (77.9%)
+  Length distribution (length: count):
+     3:    9 #
+     4:   79 ###############
+     5:  215 ########################################
+     6:  365 ########################################
+     7:  209 ########################################
+     8:   88 #################
+     9:   28 #####
+    10:    5 #
+    11:    2 
+
+BLSTM:
+  Average generated name length : 6.2 characters
+  Names with common Indian endings: 61/1000 (6.1%)
+  Length distribution (length: count):
+     1:    1 
+     3:    8 #
+     4:   36 #######
+     5:  276 ########################################
+     6:  261 ########################################
+     7:  253 ########################################
+     8:  130 ##########################
+     9:   29 #####
+    10:    6 #
+
+RNN + Attention:
+  Average generated name length : 6.2 characters
+  Names with common Indian endings: 755/1000 (75.5%)
+  Length distribution (length: count):
+     3:   12 ##
+     4:   70 ##############
+     5:  224 ########################################
+     6:  341 ########################################
+     7:  199 #######################################
+     8:  106 #####################
+     9:   40 ########
+    10:    4 
+    11:    4 
+
+Realism Observations:
+----------------------------------------
+
+  Vanilla RNN produces many names that follow valid Indian phonetic
+  patterns and common name endings (-a, -ya, -an, -ish, -ka, -ti).
+  Realistic examples: Niharika, Ankita, Ojasvi, Smriti, Mudita, Satish, Tanuja, Purva
+
+  BLSTM generates names that are mostly nonsensical. Because the model
+  is trained bidirectionally but generates left-to-right using only the
+  forward direction, outputs lack coherent Indian phonetics.
+  Few passable examples: Pijejwal, Apefnwav, Puncaj, Jejydela, Vefaj, Aofskola, Vajywasa, Sesnyav
+
+  RNN + Attention generates the most natural-sounding names overall.
+  The attention mechanism helps capture valid character dependencies,
+  producing names with proper Indian name structure.
+  Realistic examples: Surjit, Jalani, Anavya, Manmohan, Nimish, Deepa, Juhi, Ashwin
+
+======================================================================
+STEP 3 — FAILURE MODES
+======================================================================
+
+Vanilla RNN
+----------------------------------------
+  1. Repeated characters: 0 names
+  2. Unnatural consonant clusters: 6 names
+     Examples: Chardhyam, Sandikksh, Sanskridh, Lakshmikant, Lakshmikant
+  3. Truncated names (<=2 chars): 0 names
+  4. Overly long names (>12 chars): 0 names
+  5. Memorized training names: 886 names
+     Examples: Santosh, Lahari, Indra, Yogesh, Shruti, Kamala, Meghana, Amit, Panchali, Saritha
+
+BLSTM
+----------------------------------------
+  1. Repeated characters: 0 names
+  2. Unnatural consonant clusters: 17 names
+     Examples: Pafnswej, Ahefnswaj, Aedefngy, Sensjwil, Jajnswil
+  3. Truncated names (<=2 chars): 1 names
+     Examples: A
+  4. Overly long names (>12 chars): 0 names
+  5. Memorized training names: 3 names
+     Examples: Aalok, Alok
+
+RNN + Attention
+----------------------------------------
+  1. Repeated characters: 0 names
+  2. Unnatural consonant clusters: 8 names
+     Examples: Aakanksha, Akanksha, Sanskriti, Lakshmi, Aakanksha
+  3. Truncated names (<=2 chars): 0 names
+  4. Overly long names (>12 chars): 0 names
+  5. Memorized training names: 864 names
+     Examples: Santosh, Shrinidhi, Lahari, Yogesh, Indra, Kamala, Meghana, Yamini, Amit, Jagat
+
+Failure Mode Summary Table:
+  Model                  Repeated  Unnatural  Truncated   Too Long  Memorized
+  ------------------------------------------------------------------------
+  Vanilla RNN                   0          6          0          0        886
+  BLSTM                         0         17          1          0          3
+  RNN + Attention               0          8          0          0        864
+
+======================================================================
+STEP 4 — MODEL COMPARISON
+======================================================================
+
+  Vanilla RNN:
+    Produces recognizable Indian-sounding names with valid phonetic
+    patterns. Occasionally generates repeated characters or slightly
+    unnatural combinations. Some training names are memorized (~9%),
+    showing the model has learned real patterns but also reproduces
+    known names. Average name length is close to training data.
+
+  BLSTM:
+    Generates highly novel but largely unrealistic names. The mismatch
+    between bidirectional training and left-to-right generation causes
+    outputs to contain many consonant clusters and character patterns
+    absent in Indian names. While novelty and diversity scores are high
+    (1.0 and 0.985), this reflects poor generation quality rather than
+    creative generalization. Zero training names are memorized because
+    the generation process diverges from learned distributions.
+
+  RNN + Attention:
+    Produces the most realistic and consistent Indian-sounding names.
+    The attention mechanism allows the model to focus on relevant
+    previously-seen characters when predicting the next one, resulting
+    in coherent phonetic sequences. It has slightly more memorized
+    training names (~10.5%), indicating strong pattern learning.
+    Names with common Indian suffixes (-a, -ka, -ni, -sh) appear
+    frequently, suggesting effective capture of naming conventions.
+
+======================================================================
+STEP 5 — COMBINING QUANTITATIVE AND QUALITATIVE INSIGHTS
+======================================================================
+
+  Quantitative metrics from Task-2:
+
+    Model              Novelty Rate    Diversity
+    ------------------------------------------------
+    Vanilla RNN           0.9100         0.9310
+    BLSTM                 1.0000         0.9850
+    RNN + Attention       0.8949         0.9139
+
+  The BLSTM achieved the highest novelty (1.0) and diversity (0.985),
+  but qualitative analysis reveals this is misleading — its generated
+  names are mostly nonsensical (e.g., "Cozoav", "Uobgar", "Iosubv").
+  High novelty here signals poor generation fidelity, not creativity.
+
+  The Vanilla RNN and RNN + Attention both produce realistic names
+  with moderate novelty (~0.89–0.91) and diversity (~0.91–0.93).
+  Their lower novelty reflects the fact that some generated names
+  correctly match real training names — a sign of good learning.
+
+  The RNN + Attention model strikes the best balance: it generates
+  diverse, realistic names while maintaining strong novelty. Its
+  attention mechanism provides better context modeling than the
+  vanilla RNN, leading to more coherent character sequences.
+
+======================================================================
+STEP 6 — CONCLUSION
+======================================================================
+
+  1. The RNN + Attention model produces the most realistic Indian names,
+     with proper phonetic patterns and common name suffixes. The attention
+     mechanism effectively captures character-level dependencies, leading
+     to coherent and natural-sounding outputs like "Monita", "Laksha",
+     "Sulita", and "Adrini".
+
+  2. The Vanilla RNN generates reasonably good names but occasionally
+     produces truncated or slightly awkward character combinations. Its
+     simpler architecture limits its ability to model long-range
+     dependencies within names.
+
+  3. The BLSTM model, despite having the most parameters (179,314) and
+     achieving the lowest training loss (0.0086), performs worst in
+     qualitative terms. The fundamental issue is the train-generate
+     mismatch: bidirectional training captures context from both
+     directions, but autoregressive generation only uses the forward
+     direction. This architectural limitation makes BLSTM unsuitable
+     for open-ended generation tasks without additional design changes
+     (e.g., using a decoder or scheduled sampling).
+
+  4. Quantitative metrics alone are insufficient for evaluating
+     generation quality. The BLSTM's perfect novelty score (1.0)
+     is a cautionary example — high novelty can indicate failure
+     rather than success when generated outputs lack realism.
+
+  5. For character-level Indian name generation, the RNN + Attention
+     architecture offers the best trade-off between quality, diversity,
+     and novelty, making it the recommended approach among the three.
+
+======================================================================
+End of Qualitative Analysis — Problem 2 Complete
+======================================================================

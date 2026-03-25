@@ -1,0 +1,94 @@
+Task-4: Embedding Visualization -- Cluster Interpretation
+============================================================
+
+
+Cluster Analysis (CBOW - PCA):
+--------------------------------------------------
+
+  Intra-group tightness (lower = tighter cluster):
+    Degree programs               avg dist = 2.15
+    Career & training             avg dist = 2.33
+    Research & innovation         avg dist = 2.35
+    Academic / student life       avg dist = 2.59
+    Campus & institution          avg dist = 3.04
+
+  Inter-group centroid distances:
+    Academic / student life      <-> Campus & institution          dist = 2.16
+    Academic / student life      <-> Career & training             dist = 1.61
+    Academic / student life      <-> Degree programs               dist = 2.86
+    Academic / student life      <-> Research & innovation         dist = 1.48
+    Campus & institution         <-> Career & training             dist = 0.57
+    Campus & institution         <-> Degree programs               dist = 2.89
+    Campus & institution         <-> Research & innovation         dist = 0.73
+    Career & training            <-> Degree programs               dist = 2.85
+    Career & training            <-> Research & innovation         dist = 0.38
+    Degree programs              <-> Research & innovation         dist = 2.48
+
+
+Cluster Analysis (CBOW - t-SNE):
+--------------------------------------------------
+
+  Intra-group tightness (lower = tighter cluster):
+    Degree programs               avg dist = 0.44
+    Career & training             avg dist = 0.95
+    Research & innovation         avg dist = 1.07
+    Campus & institution          avg dist = 1.12
+    Academic / student life       avg dist = 1.34
+
+  Inter-group centroid distances:
+    Academic / student life      <-> Campus & institution          dist = 0.69
+    Academic / student life      <-> Career & training             dist = 0.33
+    Academic / student life      <-> Degree programs               dist = 1.09
+    Academic / student life      <-> Research & innovation         dist = 0.46
+    Campus & institution         <-> Career & training             dist = 0.46
+    Campus & institution         <-> Degree programs               dist = 0.87
+    Campus & institution         <-> Research & innovation         dist = 0.65
+    Career & training            <-> Degree programs               dist = 0.78
+    Career & training            <-> Research & innovation         dist = 0.24
+    Degree programs              <-> Research & innovation         dist = 0.65
+
+
+Cluster Analysis (Skip-Gram - PCA):
+--------------------------------------------------
+
+  Intra-group tightness (lower = tighter cluster):
+    Degree programs               avg dist = 1.15
+    Academic / student life       avg dist = 1.50
+    Research & innovation         avg dist = 2.15
+    Career & training             avg dist = 2.33
+    Campus & institution          avg dist = 2.41
+
+  Inter-group centroid distances:
+    Academic / student life      <-> Campus & institution          dist = 0.92
+    Academic / student life      <-> Career & training             dist = 1.75
+    Academic / student life      <-> Degree programs               dist = 2.03
+    Academic / student life      <-> Research & innovation         dist = 1.21
+    Campus & institution         <-> Career & training             dist = 0.86
+    Campus & institution         <-> Degree programs               dist = 2.15
+    Campus & institution         <-> Research & innovation         dist = 1.19
+    Career & training            <-> Degree programs               dist = 2.32
+    Career & training            <-> Research & innovation         dist = 1.86
+    Degree programs              <-> Research & innovation         dist = 3.14
+
+
+Cluster Analysis (Skip-Gram - t-SNE):
+--------------------------------------------------
+
+  Intra-group tightness (lower = tighter cluster):
+    Degree programs               avg dist = 0.68
+    Academic / student life       avg dist = 0.85
+    Campus & institution          avg dist = 1.18
+    Research & innovation         avg dist = 1.49
+    Career & training             avg dist = 1.51
+
+  Inter-group centroid distances:
+    Academic / student life      <-> Campus & institution          dist = 0.41
+    Academic / student life      <-> Career & training             dist = 0.61
+    Academic / student life      <-> Degree programs               dist = 0.94
+    Academic / student life      <-> Research & innovation         dist = 0.28
+    Campus & institution         <-> Career & training             dist = 0.24
+    Campus & institution         <-> Degree programs               dist = 1.29
+    Campus & institution         <-> Research & innovation         dist = 0.23
+    Career & training            <-> Degree programs               dist = 1.40
+    Career & training            <-> Research & innovation         dist = 0.47
+    Degree programs              <-> Research & innovation         dist = 1.22

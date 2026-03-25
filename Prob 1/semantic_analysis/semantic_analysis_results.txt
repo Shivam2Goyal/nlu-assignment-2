@@ -1,0 +1,240 @@
+Task-3: Semantic Analysis of Word2Vec Embeddings
+============================================================
+
+CBOW Results
+------------------------------------------------------------
+
+Nearest Neighbor Results
+------------------------------
+
+Word: research
+Nearest neighbors:
+  1. tutorials (0.3641)
+  2. hydrogen (0.3201)
+  3. role (0.3179)
+  4. multidisciplinary (0.3156)
+  5. germany (0.3012)
+
+Word: student
+Nearest neighbors:
+  1. candidate (0.5074)
+  2. review (0.3541)
+  3. permit (0.3535)
+  4. temporarily (0.3521)
+  5. cancelled (0.3442)
+
+Word: phd
+Nearest neighbors:
+  1. started (0.3877)
+  2. shortlisted (0.3723)
+  3. semester-ii (0.3680)
+  4. mtech (0.3619)
+  5. exam (0.3519)
+
+Word: exam
+Nearest neighbors:
+  1. sem-ii (0.6284)
+  2. implementation (0.5285)
+  3. semester-ii (0.5127)
+  4. joining (0.4427)
+  5. vehicles (0.4251)
+
+Analogy Experiments
+------------------------------
+
+Analogy: UG : BTech :: PG : ?
+Top predictions:
+  1. provides (0.3732)
+  2. state-of-the-art (0.3703)
+  3. domains (0.3311)
+  4. vision (0.3256)
+  5. welcome (0.3234)
+
+Analogy: Faculty : Teaching :: Student : ?
+Top predictions:
+  1. ongoing (0.3046)
+  2. backlog (0.2974)
+  3. kept (0.2819)
+  4. dedication (0.2778)
+  5. orientation (0.2713)
+
+Analogy: PhD : Thesis :: MTech : ?
+Top predictions:
+  1. orientation (0.3457)
+  2. refers (0.3300)
+  3. charge (0.3208)
+  4. revision (0.3082)
+  5. cancelled (0.2934)
+
+Analogy: Admission : Requirement :: Registration : ?
+Top predictions:
+  1. requirements (0.3356)
+  2. name (0.3338)
+  3. missing (0.2973)
+  4. yadav (0.2801)
+  5. branch (0.2795)
+
+
+Semantic Interpretation (CBOW Nearest Neighbors):
+-------------------------------------------------------
+  The nearest neighbors of "research" include "tutorials", "hydrogen", "role", indicating the model captures the semantic context associated with research-related concepts.
+  The nearest neighbors of "student" include "candidate", "review", "permit", indicating the model captures the semantic context associated with student-related concepts.
+  The nearest neighbors of "phd" include "started", "shortlisted", "semester-ii", indicating the model captures the semantic context associated with phd-related concepts.
+  The nearest neighbors of "exam" include "sem-ii", "implementation", "semester-ii", indicating the model captures the semantic context associated with exam-related concepts.
+
+
+Semantic Interpretation (CBOW Analogies):
+-------------------------------------------------------
+  UG : BTech :: PG : ?
+    Top predictions: provides, state-of-the-art, domains
+    The model's predictions suggest the embeddings encode
+    the underlying relationship captured by this analogy.
+  Faculty : Teaching :: Student : ?
+    Top predictions: ongoing, backlog, kept
+    The model's predictions suggest the embeddings encode
+    the underlying relationship captured by this analogy.
+  PhD : Thesis :: MTech : ?
+    Top predictions: orientation, refers, charge
+    The model's predictions suggest the embeddings encode
+    the underlying relationship captured by this analogy.
+  Admission : Requirement :: Registration : ?
+    Top predictions: requirements, name, missing
+    The model's predictions suggest the embeddings encode
+    the underlying relationship captured by this analogy.
+
+
+Skip-Gram Results
+------------------------------------------------------------
+
+Nearest Neighbor Results
+------------------------------
+
+Word: research
+Nearest neighbors:
+  1. proposal (0.4789)
+  2. coursework (0.4724)
+  3. art (0.4344)
+  4. grant (0.4242)
+  5. providing (0.4063)
+
+Word: student
+Nearest neighbors:
+  1. terminated (0.4790)
+  2. temporarily (0.4720)
+  3. candidate (0.4608)
+  4. already (0.4537)
+  5. termination (0.4397)
+
+Word: phd
+Nearest neighbors:
+  1. inter-disciplinary (0.4930)
+  2. avail (0.4813)
+  3. cr (0.4586)
+  4. metallurgical (0.4516)
+  5. mtech (0.4460)
+
+Word: exam
+Nearest neighbors:
+  1. sem-ii (0.5890)
+  2. missed (0.5638)
+  3. top (0.5515)
+  4. semester-ii (0.5279)
+  5. shortlisted (0.5203)
+
+Analogy Experiments
+------------------------------
+
+Analogy: UG : BTech :: PG : ?
+Top predictions:
+  1. promotes (0.4878)
+  2. teacher (0.4828)
+  3. challenges (0.4593)
+  4. faqs (0.4578)
+  5. liberal (0.4480)
+
+Analogy: Faculty : Teaching :: Student : ?
+Top predictions:
+  1. seminar (0.2913)
+  2. continuous (0.2658)
+  3. illness (0.2617)
+  4. graduation (0.2526)
+  5. foresight (0.2516)
+
+Analogy: PhD : Thesis :: MTech : ?
+Top predictions:
+  1. indicated (0.4100)
+  2. announced (0.3898)
+  3. criterion (0.3755)
+  4. cancelled (0.3702)
+  5. her (0.3696)
+
+Analogy: Admission : Requirement :: Registration : ?
+Top predictions:
+  1. continuation (0.4027)
+  2. qualifications (0.4018)
+  3. against (0.3939)
+  4. indiscipline (0.3764)
+  5. pending (0.3662)
+
+
+Semantic Interpretation (Skip-Gram Nearest Neighbors):
+-------------------------------------------------------
+  The nearest neighbors of "research" include "proposal", "coursework", "art", indicating the model captures the semantic context associated with research-related concepts.
+  The nearest neighbors of "student" include "terminated", "temporarily", "candidate", indicating the model captures the semantic context associated with student-related concepts.
+  The nearest neighbors of "phd" include "inter-disciplinary", "avail", "cr", indicating the model captures the semantic context associated with phd-related concepts.
+  The nearest neighbors of "exam" include "sem-ii", "missed", "top", indicating the model captures the semantic context associated with exam-related concepts.
+
+
+Semantic Interpretation (Skip-Gram Analogies):
+-------------------------------------------------------
+  UG : BTech :: PG : ?
+    Top predictions: promotes, teacher, challenges
+    The model's predictions suggest the embeddings encode
+    the underlying relationship captured by this analogy.
+  Faculty : Teaching :: Student : ?
+    Top predictions: seminar, continuous, illness
+    The model's predictions suggest the embeddings encode
+    the underlying relationship captured by this analogy.
+  PhD : Thesis :: MTech : ?
+    Top predictions: indicated, announced, criterion
+    The model's predictions suggest the embeddings encode
+    the underlying relationship captured by this analogy.
+  Admission : Requirement :: Registration : ?
+    Top predictions: continuation, qualifications, against
+    The model's predictions suggest the embeddings encode
+    the underlying relationship captured by this analogy.
+
+
+============================================================
+  CBOW vs Skip-Gram Comparison
+============================================================
+
+Nearest Neighbor Comparison:
+----------------------------------------
+
+  Word: research
+    CBOW      : tutorials (0.36), hydrogen (0.32), role (0.32)
+    Skip-Gram : proposal (0.48), coursework (0.47), art (0.43)
+
+  Word: student
+    CBOW      : candidate (0.51), review (0.35), permit (0.35)
+    Skip-Gram : terminated (0.48), temporarily (0.47), candidate (0.46)
+
+  Word: phd
+    CBOW      : started (0.39), shortlisted (0.37), semester-ii (0.37)
+    Skip-Gram : inter-disciplinary (0.49), avail (0.48), cr (0.46)
+
+  Word: exam
+    CBOW      : sem-ii (0.63), implementation (0.53), semester-ii (0.51)
+    Skip-Gram : sem-ii (0.59), missed (0.56), top (0.55)
+
+
+Observation:
+  Both models capture meaningful semantic relationships from the
+  IIT Jodhpur corpus.  Skip-Gram with Negative Sampling typically
+  produces more semantically coherent neighbors, especially for
+  less frequent words, because it optimises each (center, context)
+  pair individually -- giving rare words more training signal.
+  CBOW tends to average context, which can blur distinctions for
+  rarer terms but often yields strong results for frequent words.
+

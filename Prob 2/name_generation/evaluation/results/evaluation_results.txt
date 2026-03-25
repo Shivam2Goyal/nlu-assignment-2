@@ -1,0 +1,162 @@
+=================================================================
+Task-2: Quantitative Evaluation Results
+=================================================================
+
+Evaluation Settings:
+  Names generated per model : 1000
+  Sampling temperature      : 0.8
+  Training set size         : 1000
+  Vocabulary size           : 50
+
+─────────────────────────────────────────────────────────────────
+Model: Vanilla RNN
+─────────────────────────────────────────────────────────────────
+  Generated names : 1000
+  Novelty Rate    : 0.1140 (114 novel names)
+  Diversity       : 0.6440 (644 unique names)
+
+  Sample generated names:
+    Rajat
+    Pradip
+    Gargi
+    Niharika
+    Jay
+    Ankita
+    Virun
+    Ojasvi
+    Sandeep
+    Smriti
+    Chitranshi
+    Mudita
+    Amol
+    Satish
+    Tanuja
+
+  Sample novel names:
+    Virun
+    Manta
+    Lavang
+    Rupu
+    Saarveen
+    Sharadna
+    Mahavi
+    Akuta
+    Sakriti
+    Akat
+    Arundhani
+    Saraj
+    Koham
+    Chardhyam
+    Sandikksh
+
+─────────────────────────────────────────────────────────────────
+Model: BLSTM
+─────────────────────────────────────────────────────────────────
+  Generated names : 1000
+  Novelty Rate    : 0.9970 (997 novel names)
+  Diversity       : 0.9330 (933 unique names)
+
+  Sample generated names:
+    Sejel
+    Aljely
+    Jafufuv
+    Suvefy
+    Sefveyep
+    Adekel
+    Amvewef
+    Gefnuded
+    Agevef
+    Bifek
+    Aafoke
+    Juyudy
+    Asek
+    Adeyeng
+    Gufufely
+
+  Sample novel names:
+    Sejel
+    Aljely
+    Jafufuv
+    Suvefy
+    Sefveyep
+    Adekel
+    Amvewef
+    Gefnuded
+    Agevef
+    Bifek
+    Aafoke
+    Juyudy
+    Asek
+    Adeyeng
+    Gufufely
+
+─────────────────────────────────────────────────────────────────
+Model: RNN + Attention
+─────────────────────────────────────────────────────────────────
+  Generated names : 1000
+  Novelty Rate    : 0.1360 (136 novel names)
+  Diversity       : 0.6440 (644 unique names)
+
+  Sample generated names:
+    Jai
+    Paras
+    Surjit
+    Saroj
+    Jalani
+    Anavya
+    Manmohan
+    Priyanshu
+    Nimish
+    Tarun
+    Deepa
+    Juhi
+    Pranay
+    Ashwin
+    Ashish
+
+  Sample novel names:
+    Jalani
+    Anavya
+    Karaj
+    Meeta
+    Ravind
+    Kangesh
+    Gahil
+    Keeran
+    geta
+    Neetan
+    Sampal
+    Somita
+    Pratyam
+    Soeen
+    Rijay
+
+=================================================================
+COMPARISON TABLE
+=================================================================
+Model                    Novelty Rate    Diversity
+----------------------------------------------------
+Vanilla RNN                    0.1140       0.6440
+BLSTM                          0.9970       0.9330
+RNN + Attention                0.1360       0.6440
+----------------------------------------------------
+
+=================================================================
+OBSERVATIONS
+=================================================================
+
+1. BLSTM achieved the highest novelty rate (0.9970),
+   meaning it generates the most names not seen during training.
+   This suggests better generalization beyond memorized patterns.
+
+2. BLSTM achieved the highest diversity (0.9330),
+   producing the most unique names across 1000 generations.
+   This indicates greater variety in the learned character distributions.
+
+3. The BLSTM's bidirectional architecture captures both forward and
+   backward context, which helps in learning valid character patterns.
+
+4. The attention mechanism allows the RNN to focus on relevant
+   positions in the sequence when predicting each character,
+   potentially improving the quality and variety of generated names.
+
